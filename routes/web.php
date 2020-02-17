@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group([], function() {
+	Route::get('/', 'IndexController@execute')->name('index');
 });
