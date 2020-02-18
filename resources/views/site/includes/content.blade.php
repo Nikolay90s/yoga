@@ -1,17 +1,21 @@
-<section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
+@if(isset($sliders) && is_array($sliders))
+	@foreach($sliders as $slider)
+<section class="hero-wrap js-fullheight" style="background-image: url('asset/images/{{ $slider['images'] }}');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start">
           <div class="col-md-8 ftco-animate">
-            <h1 class="typewrite mb-3" data-period="4000" data-type='[ "Inspiration For Joyful Living.", "Effective Therapy Against Stress.", "Flexibility is A Second Power."]'>
+            <h1 class="typewrite mb-3" data-period="4000" data-type='[ <?php foreach($slider['Vtext'] as $slid){ echo '"'.$slid.'"'.","; } ?> " "]'>
               <span class="wrap"></span>
             </h1>
-            <h2 class="mb-5">Do Yoga today for a better tomorrow</h2>
-            <p><a href="#" class="btn btn-primary p-3 px-4">15 Day Free Trial</a></p>
+            <h2 class="mb-5">{!! $slider['text'] !!}</h2>
+            <p><a href="#" class="btn btn-primary p-3 px-4">{{ $slider['buttonName'] }}</a></p>
           </div>
         </div>
       </div>
     </section>
+	@endforeach
+@endif
 
 		<section class="ftco-section ftco-intro" style="background-image: url(images/intro.jpg);">
 			<div class="container">
