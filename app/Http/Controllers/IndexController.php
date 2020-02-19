@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Menu;
 use App\Slider;
 use App\Ftco;
+use App\Service;
 
 class IndexController extends Controller
 {
@@ -14,6 +15,7 @@ class IndexController extends Controller
       	$menus = Menu::all();
       	$sliders = Slider::all()->toArray();
       	$ftcos = Ftco::all();
+      	$services = Service::all();
 
 		foreach($ftcos as $ftco){
           	$ftco['check'] = Ftco::find($ftco->id)->check;
@@ -41,7 +43,8 @@ class IndexController extends Controller
             	'title' => 'Yogalax',
               	'menus' => $menus,
               	'sliders' => $sl,
-              	'check' => $ftcos
+              	'check' => $ftcos,
+              	'services' => $services
             ];
           	return view('site.index', $data);
         } else {
