@@ -17,26 +17,27 @@
 	@endforeach
 @endif
 
-		<section class="ftco-section ftco-intro" style="background-image: url(images/intro.jpg);">
+@if(isset($check) && is_object($check))
+	@foreach($check as $check)
+		<section class="ftco-section ftco-intro" style="background-image: url(asset/images/{{ $check->image }});">
 			<div class="container">
 				<div class="row justify-content-end">
 					<div class="col-md-6">
 						<div class="heading-section ftco-animate">
-	            <h2 class="mb-4">Why You Should Go To Yoga</h2>
+	            <h2 class="mb-4">{{ $check->title }}</h2>
 	          </div>
-	          <p class="ftco-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+	          <p class="ftco-animate">{{ $check->text }}</p>
 	          <ul class="mt-5 do-list">
-	          	<li class="ftco-animate"><a href="#"><span class="ion-ios-checkmark-circle mr-3"></span>Yoga boosts brain power</a></li>
-	          	<li class="ftco-animate"><a href="#"><span class="ion-ios-checkmark-circle mr-3"></span>Yoga helps you to breathe better</a></li>
-	          	<li class="ftco-animate"><a href="#"><span class="ion-ios-checkmark-circle mr-3"></span>Yoga improves your strength</a></li>
-	          	<li class="ftco-animate"><a href="#"><span class="ion-ios-checkmark-circle mr-3"></span>Yoga helps you to focus</a></li>
-	          	<li class="ftco-animate"><a href="#"><span class="ion-ios-checkmark-circle mr-3"></span>Yoga helps give meaning to your day</a></li>
+                @foreach($check['check'] as $chec)
+	          	<li class="ftco-animate"><a href="#"><span class="ion-ios-checkmark-circle mr-3"></span>{{ $chec->text }}</a></li>
+                @endforeach
 	          </ul>
 					</div>
 				</div>
 			</div>
 		</section>
-
+	@endforeach
+@endif
     <section class="ftco-section ftco-section-services bg-light">
     	<div class="container">
     		<div class="row">
