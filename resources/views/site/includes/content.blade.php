@@ -38,56 +38,28 @@
 		</section>
 	@endforeach
 @endif
+
+@if(isset($services) && is_object($services))
     <section class="ftco-section ftco-section-services bg-light">
     	<div class="container">
     		<div class="row">
+              @foreach($services as $service)
     			<div class="col-md-3">
 						<div class="services ftco-animate">
 							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-like"></span>
+								<span class="{{ $service->icon }}"></span>
 							</div>
 							<div class="text mt-4">
-								<h3>Healthy Lifestyle</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+								<h3>{{ $service->title }}</h3>
+								{!! $service->text !!}
 							</div>
 						</div>
 					</div>
-					<div class="col-md-3">
-						<div class="services ftco-animate">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-lotus"></span>
-							</div>
-							<div class="text mt-4">
-								<h3>Body &amp; Mind Balance</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="services ftco-animate">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-meditation"></span>
-							</div>
-							<div class="text mt-4">
-								<h3>Meditation Practice</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="services ftco-animate">
-							<div class="icon d-flex justify-content-center align-items-center">
-								<span class="flaticon-lotus-1"></span>
-							</div>
-							<div class="text mt-4">
-								<h3>Edeology</h3>
-								<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
-							</div>
-						</div>
-					</div>
+              @endforeach
 				</div>
     	</div>
     </section>
+@endif
 
 	  <section class="ftco-section">
 	  	<div class="container">
