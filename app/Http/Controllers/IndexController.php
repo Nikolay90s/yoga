@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Menu;
 use App\Slider;
+<<<<<<< HEAD
+use App\Ftco;
+=======
+>>>>>>> master
 
 class IndexController extends Controller
 {
@@ -12,6 +16,14 @@ class IndexController extends Controller
 
       	$menus = Menu::all();
       	$sliders = Slider::all()->toArray();
+<<<<<<< HEAD
+      	$ftcos = Ftco::all();
+
+		foreach($ftcos as $ftco){
+          	$ftco['check'] = Ftco::find($ftco->id)->check;
+        }
+=======
+>>>>>>> master
 
       	$sl = array();
       	foreach($sliders as $slider){
@@ -34,7 +46,12 @@ class IndexController extends Controller
           	$data = [
             	'title' => 'Yogalax',
               	'menus' => $menus,
+<<<<<<< HEAD
+              	'sliders' => $sl,
+              	'check' => $ftcos
+=======
               	'sliders' => $sl
+>>>>>>> master
             ];
           	return view('site.index', $data);
         } else {
