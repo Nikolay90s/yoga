@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChecksTable extends Migration
+class CreateCartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateChecksTable extends Migration
      */
     public function up()
     {
-        Schema::create('checks', function (Blueprint $table) {
+        Schema::create('carts', function (Blueprint $table) {
             $table->bigIncrements('id');
-          	$table->integer('ftco_id')->unsigned()->default(0);
-          	$table->foreign('ftco_id')->references('id')->on('ftcos');
-          	$table->string('text', 255);
+          	$table->string('name', 100);
+          	$table->string('price', 10);
+          	$table->string('time', 50);
+          	$table->string('title', 100);
+          	$table->text('text');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateChecksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('checks');
+        Schema::dropIfExists('carts');
     }
 }
