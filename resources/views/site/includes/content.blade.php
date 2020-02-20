@@ -61,6 +61,7 @@
     </section>
 @endif
 
+@if(isset($classes) && is_object($classes))
 	  <section class="ftco-section">
 	  	<div class="container">
 	  		<div class="row justify-content-center mb-5 pb-3">
@@ -70,71 +71,24 @@
           </div>
         </div>
         <div class="row no-gutters">
+          @foreach($classes as $classe)
         	<div class="col-md-6 col-lg-4">
         		<div class="package-program ftco-animate">
-        			<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-1.jpg);">
+        			<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(asset/images/{{ $classe->image }});">
         				<div class="text p-5 text-center">
-	        				<h3>Group Lessons</h3>
-	        				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+	        				<h3>{{ $classe->title }}</h3>
+	        				{!! $classe->text !!}
 	        			</div>
         			</a>
         		</div>
         	</div>
-        	<div class="col-md-6 col-lg-4">
-        		<div class="package-program ftco-animate">
-        			<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-2.jpg);">
-        				<div class="text p-5 text-center">
-	        				<h3>Yoga For Beginners</h3>
-	        				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-	        			</div>
-        			</a>
-        		</div>
-        	</div>
-        	<div class="col-md-6 col-lg-4">
-        		<div class="package-program ftco-animate">
-        			<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-3.jpg);">
-        				<div class="text p-5 text-center">
-	        				<h3>Yoga For Pregnant</h3>
-	        				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-	        			</div>
-        			</a>
-        		</div>
-        	</div>
-        	<div class="col-md-6 col-lg-4">
-        		<div class="package-program ftco-animate">
-        			<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-4.jpg);">
-        				<div class="text p-5 text-center">
-	        				<h3>Yoga For Couples</h3>
-	        				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-	        			</div>
-        			</a>
-        		</div>
-        	</div>
-        	<div class="col-md-6 col-lg-4">
-        		<div class="package-program ftco-animate">
-        			<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-5.jpg);">
-        				<div class="text p-5 text-center">
-	        				<h3>Bikram Yoga</h3>
-	        				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-	        			</div>
-        			</a>
-        		</div>
-        	</div>
-        	<div class="col-md-6 col-lg-4">
-        		<div class="package-program ftco-animate">
-        			<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-6.jpg);">
-        				<div class="text p-5 text-center">
-	        				<h3>Yoga Barre</h3>
-	        				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-	        			</div>
-        			</a>
-        		</div>
-        	</div>
+          @endforeach
         </div>
 	  	</div>
 	  </section>
+@endif
 
-
+@if(isset($carts) && is_object($carts))
     <section class="ftco-section bg-light">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -144,27 +98,26 @@
           </div>
         </div>
         <div class="row">
+          @foreach($carts as $cart)
 	        <div class="col-md-4 ftco-animate">
 	          <div class="block-7">
 	            <div class="text-center">
-	            <h2 class="heading">Year Card</h2>
-	            <span class="price"><sup>$</sup> <span class="number">449</span></span>
-	            <span class="excerpt d-block">For 1 Year</span>
+	            <h2 class="heading">{{ $cart->name }}</h2>
+	            <span class="price"><sup>$</sup> <span class="number">{{ $cart->price }}</span></span>
+	            <span class="excerpt d-block">{{ $cart->time }}</span>
 
-	            <h3 class="heading-2 my-4">Enjoy All The Features</h3>
+	            <h3 class="heading-2 my-4">{{ $cart->title }}</h3>
 
 	            <ul class="pricing-text mb-5">
-	              <li>Onetime Access To All Club</li>
-	              <li>Group Trainer</li>
-	              <li>Book A Group Class</li>
-	              <li>Fitness Orientation</li>
+	              {!! $cart->text !!}
 	            </ul>
 
 	            <a href="#" class="btn btn-primary d-block px-2 py-4">Get Started</a>
 	            </div>
 	          </div>
 	        </div>
-	        <div class="col-md-4 ftco-animate">
+          @endforeach
+	  <!--      <div class="col-md-4 ftco-animate">
 	          <div class="block-7">
 	            <div class="text-center">
 	            <h2 class="heading">Monthly Card</h2>
@@ -203,11 +156,11 @@
 	            <a href="#" class="btn btn-primary d-block px-2 py-4">Get Started</a>
 	            </div>
 	          </div>
-	        </div>
+	        </div>    -->
 	      </div>
       </div>
     </section>
-
+@endif
 
     <section class="ftco-section testimony-section">
       <div class="container">

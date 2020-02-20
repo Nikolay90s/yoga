@@ -7,6 +7,8 @@ use App\Menu;
 use App\Slider;
 use App\Ftco;
 use App\Service;
+use App\Classe;
+use App\Cart;
 
 class IndexController extends Controller
 {
@@ -16,6 +18,8 @@ class IndexController extends Controller
       	$sliders = Slider::all()->toArray();
       	$ftcos = Ftco::all();
       	$services = Service::all();
+      	$classes = Classe::all();
+      	$carts = Cart::all();
 
 		foreach($ftcos as $ftco){
           	$ftco['check'] = Ftco::find($ftco->id)->check;
@@ -44,7 +48,9 @@ class IndexController extends Controller
               	'menus' => $menus,
               	'sliders' => $sl,
               	'check' => $ftcos,
-              	'services' => $services
+              	'services' => $services,
+              	'classes' => $classes,
+              	'carts' => $carts
             ];
           	return view('site.index', $data);
         } else {
