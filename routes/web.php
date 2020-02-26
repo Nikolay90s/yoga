@@ -14,3 +14,11 @@
 Route::group([], function() {
 	Route::get('/', 'IndexController@execute')->name('index');
 });
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
+	Route::get('/', 'IndexController@execute')->name('index');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -8,6 +8,11 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+
+  	public function ancet() {
+      	return $this->hasOne('App\Anket');
+    }
+
     use Notifiable;
 
     /**
