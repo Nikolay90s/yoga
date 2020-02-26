@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Фев 26 2020 г., 05:21
+-- Время создания: Фев 26 2020 г., 15:46
 -- Версия сервера: 5.6.38
 -- Версия PHP: 7.3.3
 
@@ -151,7 +151,8 @@ INSERT INTO `classes` (`id`, `image`, `title`, `text`, `created_at`, `updated_at
 (2, 'program-2.jpg', 'Yoga For Beginners', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL),
 (3, 'program-4.jpg', 'Yoga For Couples', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL),
 (4, 'program-5.jpg', 'Bikram Yoga', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL),
-(5, 'program-6.jpg', 'Yoga Barre', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL);
+(5, 'program-6.jpg', 'Yoga Barre', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL),
+(6, 'program-3.jpg', 'Yoga For Pregnant', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -232,7 +233,8 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`id`, `name`, `link`, `created_at`, `updated_at`) VALUES
-(1, 'Home', 'index', NULL, NULL);
+(1, 'Home', 'index', NULL, NULL),
+(7, 'Classes', 'classes', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -477,7 +479,7 @@ ALTER TABLE `checks`
 -- AUTO_INCREMENT для таблицы `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `failed_jobs`
@@ -501,7 +503,7 @@ ALTER TABLE `gallerys`
 -- AUTO_INCREMENT для таблицы `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `migrations`
