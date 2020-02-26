@@ -13,10 +13,11 @@
 
 Route::group([], function() {
 	Route::get('/', 'IndexController@execute')->name('index');
+	Route::get('/classes', 'ClassesController@execute')->name('classes');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
-	Route::get('/', 'IndexController@execute')->name('index');
+	
 });
 
 Auth::routes();
