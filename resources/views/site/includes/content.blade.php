@@ -117,51 +117,12 @@
 	          </div>
 	        </div>
           @endforeach
-	  <!--      <div class="col-md-4 ftco-animate">
-	          <div class="block-7">
-	            <div class="text-center">
-	            <h2 class="heading">Monthly Card</h2>
-	            <span class="price"><sup>$</sup> <span class="number">200</span></span>
-	            <span class="excerpt d-block">For 1 Month</span>
-
-	            <h3 class="heading-2 my-4">Enjoy All The Features</h3>
-
-	            <ul class="pricing-text mb-5">
-	              <li>Group Classes</li>
-	              <li>Discuss Fitness Goals</li>
-	              <li>Group Trainer</li>
-	              <li>Fitness Orientation</li>
-	            </ul>
-
-	            <a href="#" class="btn btn-primary d-block px-2 py-4">Get Started</a>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-4 ftco-animate">
-	          <div class="block-7">
-	            <div class="text-center">
-	            <h2 class="heading">Weekly Card</h2>
-	            <span class="price"><sup>$</sup> <span class="number">85</span></span>
-	            <span class="excerpt d-block">For 1 Week</span>
-
-	            <h3 class="heading-2 my-4">Enjoy All The Features</h3>
-
-	            <ul class="pricing-text mb-5">
-	              <li>Group Classes</li>
-	              <li>Discuss Fitness Goals</li>
-	              <li>Group Trainer</li>
-	              <li>Fitness Orientation</li>
-	            </ul>
-
-	            <a href="#" class="btn btn-primary d-block px-2 py-4">Get Started</a>
-	            </div>
-	          </div>
-	        </div>    -->
 	      </div>
       </div>
     </section>
 @endif
 
+@if(isset($users) && is_object($users))
     <section class="ftco-section testimony-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -173,117 +134,38 @@
         <div class="row ftco-animate">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel">
+              @foreach($users as $user)
+              	@if(isset($user['anket']))
               <div class="item">
                 <div class="testimony-wrap p-4 pb-5">
                   <div class="text">
                   	<div class="line pl-5">
-	                    <p class="mb-4 pb-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+	                    <p class="mb-4 pb-1">{{ $user['anket']->storis }}</p>
 	                    <span class="quote d-flex align-items-center justify-content-center">
 	                      <i class="icon-quote-left"></i>
 	                    </span>
 	                  </div>
                     <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_1.jpg)">
+                    	<div class="user-img" style="background-image: url(asset/images/{{ $user['anket']->avatar }})">
 		                  </div>
 		                  <div class="ml-4">
-		                  	<p class="name">Gabby Smith</p>
+		                  	<p class="name">{{ $user->name }}</p>
 		                    <span class="position">Customer</span>
 		                  </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="text">
-                    <div class="line pl-5">
-	                    <p class="mb-4 pb-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-	                    <span class="quote d-flex align-items-center justify-content-center">
-	                      <i class="icon-quote-left"></i>
-	                    </span>
-	                  </div>
-
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_2.jpg)">
-		                  </div>
-		                  <div class="ml-4">
-		                  	<p class="name">Floyd Weather</p>
-		                    <span class="position">Customer</span>
-		                  </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="text">
-                    <div class="line pl-5">
-	                    <p class="mb-4 pb-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-	                    <span class="quote d-flex align-items-center justify-content-center">
-	                      <i class="icon-quote-left"></i>
-	                    </span>
-	                  </div>
-
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_3.jpg)">
-		                  </div>
-		                  <div class="ml-4">
-		                  	<p class="name">James Dee</p>
-		                    <span class="position">Customer</span>
-		                  </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="text">
-                    <div class="line pl-5">
-	                    <p class="mb-4 pb-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-	                    <span class="quote d-flex align-items-center justify-content-center">
-	                      <i class="icon-quote-left"></i>
-	                    </span>
-	                  </div>
-
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_4.jpg)">
-		                  </div>
-		                  <div class="ml-4">
-		                  	<p class="name">Lance Roger</p>
-		                    <span class="position">Customer</span>
-		                  </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="text">
-                    <div class="line pl-5">
-	                    <p class="mb-4 pb-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-	                    <span class="quote d-flex align-items-center justify-content-center">
-	                      <i class="icon-quote-left"></i>
-	                    </span>
-	                  </div>
-
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_2.jpg)">
-		                  </div>
-		                  <div class="ml-4">
-		                  	<p class="name">Kenny Bufer</p>
-		                    <span class="position">Customer</span>
-		                  </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              	@endif
+              @endforeach
             </div>
           </div>
         </div>
       </div>
     </section>
+@endif
 
-    <section class="ftco-counter ftco-bg-dark img" id="section-counter" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+    <section class="ftco-counter ftco-bg-dark img" id="section-counter" style="background-image: url(asset/images/bg_3.jpg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
       <div class="container">
         <div class="row justify-content-center">
@@ -327,6 +209,7 @@
       </div>
     </section>
 
+@if(isset($blogs))
     <section class="ftco-section bg-light">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -336,67 +219,33 @@
           </div>
         </div>
         <div class="row d-flex">
+        	@foreach($blogs as $blog)
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('asset/images/{{ $blog->image }}');">
               </a>
               <div class="text p-4 float-right d-block">
               	<div class="d-flex align-items-center pt-2 mb-4">
               		<div class="one">
-              			<span class="day">31</span>
+              			<span class="day">{{ $blog->data[2] }}</span>
               		</div>
               		<div class="two">
-              			<span class="yr">2018</span>
-              			<span class="mos">December</span>
+              			<span class="yr">{{ $blog->data[0] }}</span>
+              			<span class="mos">{{ $blog->data[1] }}</span>
               		</div>
               	</div>
-                <h3 class="heading mt-2"><a href="#">Young Women Doing Yoga</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3 class="heading mt-2"><a href="#">{{ $blog->title }}</a></h3>
+                {!! $blog->smal_text !!}
               </div>
             </div>
           </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-              </a>
-              <div class="text p-4 float-right d-block">
-              	<div class="d-flex align-items-center pt-2 mb-4">
-              		<div class="one">
-              			<span class="day">27</span>
-              		</div>
-              		<div class="two">
-              			<span class="yr">2018</span>
-              			<span class="mos">December</span>
-              		</div>
-              	</div>
-                <h3 class="heading mt-2"><a href="#">Young Women Doing Yoga</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-              </a>
-              <div class="text p-4 float-right d-block">
-              	<div class="d-flex align-items-center pt-2 mb-4">
-              		<div class="one">
-              			<span class="day">25</span>
-              		</div>
-              		<div class="two">
-              			<span class="yr">2018</span>
-              			<span class="mos">December</span>
-              		</div>
-              	</div>
-                <h3 class="heading mt-2"><a href="#">Young Women Doing Yoga</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </section>
+@endif
 
+@if(isset($gallerys) && is_object($gallerys))
 		<section class="ftco-gallery ftco-section">
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-3">
@@ -406,34 +255,16 @@
           </div>
         </div>
     		<div class="row">
+    			@foreach($gallerys as $gallery)
 					<div class="col-md-3 ftco-animate">
-						<a href="images/gallery-1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-1.jpg);">
+						<a href="images/gallery-1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(asset/images/{{ $gallery->image }});">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
 						</a>
 					</div>
-					<div class="col-md-3 ftco-animate">
-						<a href="images/gallery-2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-2.jpg);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-3 ftco-animate">
-						<a href="images/gallery-3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-3.jpg);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-3 ftco-animate">
-						<a href="images/gallery-4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-4.jpg);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
+					@endforeach
         </div>
     	</div>
     </section>
+    @endif
