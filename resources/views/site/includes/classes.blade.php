@@ -45,16 +45,16 @@
             <h2 class="mb-1">See the latest photos</h2>
           </div>
         </div>
-    		<div class="row">
-    			@foreach($gallerys as $gallery)
-					<div class="col-md-3 ftco-animate">
-						<a href="images/gallery-1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(asset/images/{{ $gallery->image }});">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					@endforeach
+    	<div class="row">
+    	@foreach($gallerys as $gallery)
+	<div class="col-md-3 ftco-animate">
+            <a href="asset/images/{{ $gallery->image }}" class="gallery image-popup img d-flex align-items-center" style="background-image: url(asset/images/{{ $gallery->image }});">
+	<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    	<span class="icon-instagram"></span>
+    	</div>
+	</a>
+	</div>
+	@endforeach
         </div>
     	</div>
     </section>
