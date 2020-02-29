@@ -14,6 +14,7 @@
 Route::group([], function() {
 	Route::get('/', 'IndexController@execute')->name('index');
 	Route::get('/classes', 'ClassesController@execute')->name('classes');
+        Route::get('/about', 'AboutController@execute')->name('about');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
