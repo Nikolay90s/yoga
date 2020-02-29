@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Хост: localhost
--- Время создания: Фев 26 2020 г., 15:46
--- Версия сервера: 5.6.38
--- Версия PHP: 7.3.3
+-- Хост: 127.0.0.1:3306
+-- Время создания: Фев 29 2020 г., 12:10
+-- Версия сервера: 10.3.13-MariaDB
+-- Версия PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -32,7 +32,7 @@ USE `yoga`;
 
 CREATE TABLE `ankets` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `user_id` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `avatar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `storis` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -110,7 +110,7 @@ INSERT INTO `carts` (`id`, `name`, `price`, `time`, `title`, `text`, `created_at
 
 CREATE TABLE `checks` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ftco_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `ftco_id` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `text` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -166,7 +166,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -234,7 +234,8 @@ CREATE TABLE `menus` (
 
 INSERT INTO `menus` (`id`, `name`, `link`, `created_at`, `updated_at`) VALUES
 (1, 'Home', 'index', NULL, NULL),
-(7, 'Classes', 'classes', NULL, NULL);
+(7, 'Classes', 'classes', NULL, NULL),
+(8, 'About', 'about', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -503,7 +504,7 @@ ALTER TABLE `gallerys`
 -- AUTO_INCREMENT для таблицы `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `migrations`
