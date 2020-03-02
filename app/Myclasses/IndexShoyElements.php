@@ -87,4 +87,13 @@ class IndexShoyElements
         }
         return $blogs;
     }
+    
+    public function paginator(){
+        $blogs = DB::table('blogs')->orderBy('data', 'desc')->paginate(6);
+        foreach($blogs as $blog){
+          	$data = explode("-", $blog->data);
+          	$blog->data = $data;
+        }
+        return $blogs;
+    }
 }

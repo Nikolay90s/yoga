@@ -15,6 +15,7 @@ Route::group([], function() {
 	Route::get('/', 'IndexController@execute')->name('index');
 	Route::get('/classes', 'ClassesController@execute')->name('classes');
         Route::get('/about', 'AboutController@execute')->name('about');
+        Route::match(['get', 'post'], '/blogs', 'BlogController@execute')->name('blog');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
