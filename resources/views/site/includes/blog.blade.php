@@ -17,7 +17,7 @@
             @foreach($blogs as $blog)
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style="background-image: url('asset/images/{{ $blog->image }}');">
+              <a href="{{ route('more', ['id' => $blog->id]) }}" class="block-20" style="background-image: url('asset/images/{{ $blog->image }}');">
               </a>
               <div class="text p-4 float-right d-block">
               	<div class="d-flex align-items-center pt-2 mb-4">
@@ -29,7 +29,7 @@
               			<span class="mos">{{ $blog->data[1] }}</span>
               		</div>
               	</div>
-                <h3 class="heading mt-2"><a href="#">{{ $blog->title }}</a></h3>
+                <h3 class="heading mt-2"><a href="{{ route('more', ['id' => $blog->id]) }}">{{ $blog->title }}</a></h3>
                 {!! $blog->smal_text !!}
               </div>
             </div>

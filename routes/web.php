@@ -14,12 +14,14 @@
 Route::group([], function() {
 	Route::get('/', 'IndexController@execute')->name('index');
 	Route::get('/classes', 'ClassesController@execute')->name('classes');
-        Route::get('/about', 'AboutController@execute')->name('about');
-        Route::match(['get', 'post'], '/blogs', 'BlogController@execute')->name('blog');
+    Route::get('/about', 'AboutController@execute')->name('about');
+    Route::get('/blogs', 'BlogController@execute')->name('blog');
+    Route::match(['get', 'post'], '/more/{id}', 'MoreController@execute')->name('more');
+    Route::match(['get', 'post'], '/contact', 'ContactController@execute')->name('contact');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
-	
+
 });
 
 Auth::routes();

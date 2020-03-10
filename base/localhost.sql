@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Фев 29 2020 г., 12:10
--- Версия сервера: 10.3.13-MariaDB
--- Версия PHP: 7.2.10
+-- Хост: localhost
+-- Время создания: Мар 10 2020 г., 19:25
+-- Версия сервера: 5.6.38
+-- Версия PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -32,7 +32,7 @@ USE `yoga`;
 
 CREATE TABLE `ankets` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `user_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `avatar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `storis` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -74,7 +74,11 @@ CREATE TABLE `blogs` (
 INSERT INTO `blogs` (`id`, `image`, `data`, `title`, `smal_text`, `text`, `created_at`, `updated_at`) VALUES
 (1, 'image_1.jpg', '2020-02-21', 'Young Women Doing Yoga', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL),
 (2, 'image_2.jpg', '2020-02-22', 'Young Women Doing Yoga', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL),
-(3, 'image_3.jpg', '2020-02-23', 'Young Women Doing Yoga', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL);
+(3, 'image_3.jpg', '2020-02-23', 'Young Women Doing Yoga', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL),
+(4, 'image_4.jpg', '2020-02-24', 'Young Women Doing Yoga', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL),
+(5, 'image_5.jpg', '2020-02-25', 'Young Women Doing Yoga', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL),
+(6, 'image_6.jpg', '2020-02-26', 'Young Women Doing Yoga', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL),
+(7, 'image_2.jpg', '2020-02-10', 'Young Women Doing Yoga', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', '<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -110,7 +114,7 @@ INSERT INTO `carts` (`id`, `name`, `price`, `time`, `title`, `text`, `created_at
 
 CREATE TABLE `checks` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ftco_id` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `ftco_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `text` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -157,6 +161,31 @@ INSERT INTO `classes` (`id`, `image`, `title`, `text`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `blog_id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`id`, `blog_id`, `name`, `email`, `text`, `created_at`, `updated_at`) VALUES
+(10, 3, 'Nikolay', 'kolarulit@mail.ru', 'Jjjjjj', '2020-03-05 04:51:01', '2020-03-05 04:51:01'),
+(8, 6, 'Nikolay', 'admin@admin.ru', 'Лллллл', '2020-03-05 00:57:49', '2020-03-05 00:57:49'),
+(9, 4, 'Nikolay', 'admin@admin.ru', 'Tyytttt', '2020-03-05 01:02:19', '2020-03-05 01:02:19');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `failed_jobs`
 --
 
@@ -166,7 +195,7 @@ CREATE TABLE `failed_jobs` (
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -235,7 +264,9 @@ CREATE TABLE `menus` (
 INSERT INTO `menus` (`id`, `name`, `link`, `created_at`, `updated_at`) VALUES
 (1, 'Home', 'index', NULL, NULL),
 (7, 'Classes', 'classes', NULL, NULL),
-(8, 'About', 'about', NULL, NULL);
+(8, 'About', 'about', NULL, NULL),
+(9, 'Blog', 'blog', NULL, NULL),
+(10, 'Contact', 'contact', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -267,7 +298,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2020_02_20_043851_create_carts_table', 8),
 (12, '2020_02_20_115319_create_ankets_table', 9),
 (13, '2020_02_21_044029_create_blogs_table', 10),
-(14, '2020_02_26_031213_create_gallerys_table', 11);
+(14, '2020_02_26_031213_create_gallerys_table', 11),
+(15, '2020_03_03_143211_create_comments_table', 12);
 
 -- --------------------------------------------------------
 
@@ -394,6 +426,13 @@ ALTER TABLE `classes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `comments_blog_id_foreign` (`blog_id`);
+
+--
 -- Индексы таблицы `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -462,7 +501,7 @@ ALTER TABLE `ankets`
 -- AUTO_INCREMENT для таблицы `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `carts`
@@ -481,6 +520,12 @@ ALTER TABLE `checks`
 --
 ALTER TABLE `classes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `failed_jobs`
@@ -504,13 +549,13 @@ ALTER TABLE `gallerys`
 -- AUTO_INCREMENT для таблицы `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `services`
