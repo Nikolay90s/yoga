@@ -12,8 +12,8 @@
 */
 
 Route::group([], function() {
-	Route::get('/', 'IndexController@execute')->name('index');
-	Route::get('/classes', 'ClassesController@execute')->name('classes');
+    Route::get('/', 'IndexController@execute')->name('index');
+    Route::get('/classes', 'ClassesController@execute')->name('classes');
     Route::get('/about', 'AboutController@execute')->name('about');
     Route::get('/blogs', 'BlogController@execute')->name('blog');
     Route::match(['get', 'post'], '/more/{id}', 'MoreController@execute')->name('more');
