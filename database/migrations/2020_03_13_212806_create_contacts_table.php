@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChecksTable extends Migration
+class CreateContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateChecksTable extends Migration
      */
     public function up()
     {
-        Schema::create('checks', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
-          	$table->integer('ftco_id')->unsigned()->default(0);
-          	$table->foreign('ftco_id')->references('id')->on('ftcos');
-          	$table->string('text', 255);
+            $table->string('adress', 255);
+            $table->string('phone');
+            $table->string('email', 255);
+            $table->string('site', 100);
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateChecksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('checks');
+        Schema::dropIfExists('contacts');
     }
 }
